@@ -66,7 +66,8 @@ but this library does not have GC, so you should release manually the unnecessar
 ## Debug Functions (not recommended)
 I defined some print out functions for debugging.  
 but those functions has a possibility that is redefined or changed.
-at the last, *becareful!* those functions will not return a state that is success or not!
+at the last, those functions will not return a state that is success or not!
+so you cannot use those functions to your safety application!
 
 | Function | Description | 
 ---- | ---- 
