@@ -13,3 +13,5 @@
 #include "src/div_mdec.h"
 #include "src/abs_mdec.h"
 #include "src/cast_mdec.h"
+#include "src/compaction_mdec.h"
+#include "src/copy_mdec.h"
