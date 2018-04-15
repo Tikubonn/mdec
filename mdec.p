@@ -3,9 +3,9 @@
 #define MDEC_POSITIVE 1
 
 struct mdec {
-	int sign;
-	mint *denominator;
-	mint *numerator;
+  int sign;
+  mint *denominator;
+  mint *numerator;
 };
 
 typedef struct mdec mdec;
