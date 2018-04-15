@@ -47,7 +47,6 @@ if you want to management mdec by GC, those functions are useful.
 | `int is_negative_mdec (mdec*, mdec*)` | this return an integer that is `1` if argument is negative number. otherwise this function return `0`. |
 | `int is_zero_mdec (mdec*, mdec*)` | this return an integer that is `1` if argument is `0`. otherwise this function return `0`. | 
 | `int commonize_mdec_manualy (mdec*, mdec*, mdec* numout1, mdec* numout2)` | this function adjust denominator of first and second argument then write to instances those are last two arguments. |
-| `void compaction_mdec (mdec*)` | compaction numerator and denominator to least common multiple. |
 
 ## Automatic Functions 
 those functions allocate memory automatically with `malloc`.  
@@ -73,6 +72,7 @@ but this library does not have GC, so you should release manually the unnecessar
 | `mint *cast_mdec_to_mint (mdec*)` | return a new `mint` instance that is a multiple length integer from argument. | 
 | `int cast_mdec_to_int (mdec*)` | return a `int` that is converted integer from argument. |
 | `long cast_mdec_to_long (mdec*)` | return a `long` that is converted integer from argument. | 
+| `void compaction_mdec (mdec*)` | compaction numerator and denominator to least common multiple. |
 
 ## Debug Functions (not recommended)
 I defined some printout functions for debugging.  
