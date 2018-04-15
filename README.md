@@ -12,7 +12,7 @@ mdec *numd = mul_mdec(numc, numb); // (3000/3000)
 int inumd = cast_mdec_to_int(numd); // 1
 ```
 
-## Build
+## Build Library
 move to this package's directory then execute the make command :D  
 if you did not append [mint](https://github.com/tikubonn/mint) to environment variable, you should tell a path to directory that contain necessary files to makefile. like this code.
 
