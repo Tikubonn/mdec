@@ -16,6 +16,7 @@ mdec *sub_mdec (mdec *numa, mdec *numb){
     size_mint(numa->numerator));
   mdec *mdb = make_mdec(0, denominatorb, numeratorb);
   sub_mdec_manually(numa, numb, mda, mdb);
+	compaction_mdec(mda);
   free_mdec(mdb);
   return mda;
 }

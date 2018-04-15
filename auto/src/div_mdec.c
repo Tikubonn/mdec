@@ -13,5 +13,6 @@ mdec *div_mdec (mdec *numa, mdec *numb){
     free_mdec(md);
     return NULL;
   }
+	compaction_mdec(md);
   return md;
 }
