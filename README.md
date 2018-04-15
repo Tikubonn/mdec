@@ -1,8 +1,8 @@
 # mdec
-mdec provide multiple length decimal number for C. becareful! this is not speedy and safety!  
+mdec provide multiple-precise decimal for C. becareful! this is not speedy and safety!  
 this depends on library of [mint](https://github.com/tikubonn/mint) that provide multiple length integer. so you should get it first if you want to build this library.
-in this library, decimal structure similar as the fraction.
-so you can calculate a decimal number without missing part of data :D
+in this library, decimal structure similar as the fractional format.
+so you can calculate a decimal without missing part of data :D
 
 ```c
 mdec *numa = make_mdec_from_int(1);
@@ -30,23 +30,24 @@ if you want to management mdec by GC, those functions are useful.
 
 | Function | Description |
 ---- | ----
-| `void init_mdec (int sign, mint *numerator, mint *denominator, mdec*)` | this function construct a mdec instance by arguments. | 
+| `void init_mdec (int sign, mint *numerator, mint *denominator, mdec*)` | this function construct a mdec instance by arguments. an argument of `sign` must be `MDEC_POSITIVE` or `MDEC_NEGATIVE`. denominator and numerator must be positive integer. | 
 | `void copy_mdec_manually (mdec*, mdec*)` | this function copy content of first argument to second argument. | 
 | `void add_mdec_manually (mdec*, mdec*, mdec* numout, mdec *numtmp)` | this function calculate `+` by arguments then write a result to `numout`. | 
 | `void sub_mdec_manually (mdec*, mdec*, mdec* numout, mdec *numtmp)` | this function calculate `-` by arguments then write a result to `numout`. | 
 | `void mul_mdec_manually (mdec*, mdec*, mdec* numout)` | this function calculate `*` by arguments then write a result to `numout`. | 
 | `void div_mdec_manually (mdec*, mdec*, mdec* numout)` | this function calculate `/` by arguments then write a result to `numout`. | 
-| `void abs_mdec_manually (mdec*, mdec* numout)` | this function write an absolute decimal number of first argument to `numout`. | 
+| `void abs_mdec_manually (mdec*, mdec* numout)` | this function write an absolute decimal of first argument to `numout`. | 
 | `int is_equal_mdec_manually (mdec*, mdec*, mdec* numtmp1, mdec *numtmp2)` | this function return an integer that is `1` if first and second arguments are equal. otherwise this return `0`. |
 | `int is_unequal_mdec_manually (mdec*, mdec*, mdec* numtmp1, mdec *numtmp2)` | this function return an integer that is `1` if first and second arguments are not equal. otherwise this return `0`. |
 | `int is_lesser_mdec_manually (mdec*, mdec*, mdec* numtmp1, mdec *numtmp2)` | this function return an integer that is `1` if first argument is lesser than second argument. otherwise this return `0`. |
 | `int is_lesser_or_equal_mdec_manually (mdec*, mdec*, mdec* numtmp1, mdec *numtmp2)` | this function return an integer that is `1` if first argument is lesser or equal than second argument. otherwise this return `0`. |
 | `int is_greater_mdec_manually (mdec*, mdec*, mdec* numtmp1, mdec *numtmp2)` | this function return an integer that is `1` if first argument is greater than second argument. otherwise this return `0`. |
 | `int is_greater_or_equal_mdec_manually (mdec*, mdec*, mdec* numtmp1, mdec *numtmp2)` | this function return an integer that is `1` if first argument is greater or equal than second argument. otherwise this return `0`. |
-| `int is_positive_mint (mdec*, mdec*)` | this return an integer that is `1` if argument is positive number. otherwise this function return `0`. |
-| `int is_negative_mint (mdec*, mdec*)` | this return an integer that is `1` if argument is negative number. otherwise this function return `0`. |
-| `int is_zero_mint (mdec*, mdec*)` | this return an integer that is `1` if argument is `0`. otherwise this function return `0`. | 
-| `int commonize_mint_manualy (mdec*, mdec*, mdec* numout1, mdec* numout2)` | this function adjust denominator of first and second argument then write to instances those are last two arguments. |
+| `int is_positive_mdec (mdec*, mdec*)` | this return an integer that is `1` if argument is positive number. otherwise this function return `0`. |
+| `int is_negative_mdec (mdec*, mdec*)` | this return an integer that is `1` if argument is negative number. otherwise this function return `0`. |
+| `int is_zero_mdec (mdec*, mdec*)` | this return an integer that is `1` if argument is `0`. otherwise this function return `0`. | 
+| `int commonize_mdec_manualy (mdec*, mdec*, mdec* numout1, mdec* numout2)` | this function adjust denominator of first and second argument then write to instances those are last two arguments. |
+| `void compaction_mdec (mdec*)` | compaction numerator and denominator to least common multiple. |
 
 ## Automatic Functions 
 those functions allocate memory automatically with `malloc`.  
@@ -56,6 +57,7 @@ but this library does not have GC, so you should release manually the unnecessar
 | Function | Description |
 ---- | ---- 
 | `mdec *make_mdec (int sign, mint *numerator, mint *denominator)` | this function make a new mdec instance from arguments. an argument of `sign` must be `MDEC_POSITIVE` or `MDEC_NEGATIVE`. denominator and numerator must be positive integer. |
+| `mdec *copy_mdec (mdec*)` | create a copied instance from argument. |
 | `void free_mdec (mdec*)` | this function release the memory that is used for mdec instance. |
 | `mdec *add_mdec (mdec*, mdec*)` | return a calculation result of `+` as new instance. | 
 | `mdec *sub_mdec (mdec*, mdec*)` | return a calculation result of `-` as new instance. | 
@@ -80,9 +82,9 @@ so you cannot use those functions to your safety application!
 
 | Function | Description | 
 ---- | ---- 
-| `void print_mdec (mdec*, FILE*)` | this function printout mdec instance to stream as decimal number. | 
+| `void print_mdec (mdec*, FILE*)` | this function printout mdec instance to stream as decimal format. | 
 | `void print_mdec_ln (mdec*, FILE*)` | this similar as `print_mdec`. but this put line break after printout. |
-| `void print_mdec_as_fraction (mdec*, FILE*)` | this function printout mdec instance to stream as fraction. | 
+| `void print_mdec_as_fraction (mdec*, FILE*)` | this function printout mdec instance to stream as fractional format. | 
 | `void print_mdec_as_fraction_ln (mdec*, FILE*)` | this similar as `print_mdec_as_fraction`. but this put line break after printout. |
 
 # License 
