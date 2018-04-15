@@ -14,7 +14,7 @@ int inumd = cast_mdec_to_int(numd); // 1
 
 ## Build Library
 move to this package's directory then execute the make command :D  
-if you did not append [mint](https://github.com/tikubonn/mint) to environment variable, you should tell a path to directory that contain necessary files to makefile. like this code.
+if you did not append path of mint to environment variable, you should tell a path to directory that contain necessary files to makefile. like this code.
 
 ```bash
 make MINT_INCLUDE="path to mint" MINT_LIBRARY="path to mint/dist"
