@@ -1,6 +1,6 @@
 # mdec
 mdec provide multiple length decimal number for C. becareful! this is not speedy and safety!  
-this library depend to [mint](https://github.com/tikubonn/mint) that provide the multiple length integer.
+this depends on library of [mint](https://github.com/tikubonn/mint) that provide multiple length integer. so you should get it first if you want to build this library.
 in this library, decimal structure similar as the fraction.
 so you can calculate a decimal number without missing part of data :D
 
@@ -11,6 +11,15 @@ mdec *numc = div_mdec(numa, numb); // (1/3000)
 mdec *numd = mul_mdec(numc, numb); // (3000/3000)
 int inumd = cast_mdec_to_int(numd); // 1
 ```
+
+## Build
+move to this package's directory then execute the make command :D  
+if you did not append [mint](https://github.com/tikubonn/mint) to environment variable, you should tell a path to directory that contain necessary files to makefile. like this code.
+
+```bash
+make MINT_INCLUDE="path to mint" MINT_LIBRARY="path to mint/dist"
+```
+
 
 # API
 ## Manual Fcuntions 
