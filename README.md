@@ -17,7 +17,7 @@ int inumd = cast_mdec_to_int(numd); // 1
 those functions does not allocate memory automatically.  
 so you should prepare working memory yourself.
 for example if calculate the multiplication, you should allocate a memory space that size is double. 
-if you want to management mint by GC, those functions are useful.
+if you want to management mdec by GC, those functions are useful.
 
 | Function | Description |
 ---- | ----
@@ -48,33 +48,33 @@ but this library does not have GC, so you should release manually the unnecessar
 ---- | ---- 
 | `mdec *make_mdec (int sign, mint *numerator, mint *denominator)` | this function make a new mdec instance from arguments. an argument of `sign` must be `MDEC_POSITIVE` or `MDEC_NEGATIVE`. denominator and numerator must be positive integer. |
 | `void free_mdec (mdec*)` | this function release the memory that is used for mdec instance. |
-| `mdec *add_mdec (mdec*, mdec*)` | calculate `+` by arguments then return a new instance that is calculation result. | 
-| `mdec *sub_mdec (mdec*, mdec*)` | calculate `-` by arguments then return a new instance that is calculation result. | 
-| `mdec *mul_mdec (mdec*, mdec*)` | calculate `*` by arguments then return a new instance that is calculation result. | 
-| `mdec *div_mdec (mdec*, mdec*)` | calculate `/` by arguments then return a new instance that is calculation result. if second argument is `0`, this function cause zero division exception then return `NULL` immediately. | 
+| `mdec *add_mdec (mdec*, mdec*)` | return a calculation result of `+` as new instance. | 
+| `mdec *sub_mdec (mdec*, mdec*)` | return a calculation result of `-` as new instance. | 
+| `mdec *mul_mdec (mdec*, mdec*)` | return a calculation result of `*` as new instance. | 
+| `mdec *div_mdec (mdec*, mdec*)` | return a calculation result of `/` as new instance. if second argument is `0`, this function cause zero division exception then return the `NULL` immediately. | 
 | `mdec *abs_mdec (mdec*)` | return a absolute number from argument. | 
-| `int is_equal_mdec (mdec*, mdec*)` | this return an integer that is `1` if first and second argument are equal. otherwise this return `0`. | 
-| `int is_unequal_mdec (mdec*, mdec*)` | this return an integer that is `1` if first and second argument are not equal. otherwise this return `0`. | 
-| `int is_lesser_mdec (mdec*, mdec*)` | this return an integer that is `1` if first argument is lesser than second argument. otherwise this return `0`. | 
-| `int is_lesser_or_equal_mdec (mdec*, mdec*)` | this return an integer that is `1` if first argument is lesser or equal than second argument. otherwise this return `0`. | 
-| `int is_greater_mdec (mdec*, mdec*)` | this return an integer that is `1` if first argument is greater than second argument. otherwise this return `0`. | 
-| `int is_greater_or_equal_mdec (mdec*, mdec*)` | this return an integer that is `1` if first argument is greater or equal than second argument. otherwise this return `0`. | 
-| `mdec *cast_mdec_to_mint (mdec*)` | return a new `mint` instance that is a multiple length integer from argument. | 
+| `int is_equal_mdec (mdec*, mdec*)` | this function return an integer that is `1` if first and second argument are equal. otherwise this return `0`. | 
+| `int is_unequal_mdec (mdec*, mdec*)` | this function return an integer that is `1` if first and second argument are not equal. otherwise this return `0`. | 
+| `int is_lesser_mdec (mdec*, mdec*)` | this function return an integer that is `1` if first argument is lesser than second argument. otherwise this return `0`. | 
+| `int is_lesser_or_equal_mdec (mdec*, mdec*)` | this function return an integer that is `1` if first argument is lesser or equal than second argument. otherwise this return `0`. | 
+| `int is_greater_mdec (mdec*, mdec*)` | this function return an integer that is `1` if first argument is greater than second argument. otherwise this return `0`. | 
+| `int is_greater_or_equal_mdec (mdec*, mdec*)` | this function return an integer that is `1` if first argument is greater or equal than second argument. otherwise this return `0`. | 
+| `mint *cast_mdec_to_mint (mdec*)` | return a new `mint` instance that is a multiple length integer from argument. | 
 | `int cast_mdec_to_int (mdec*)` | return a `int` that is converted integer from argument. |
 | `long cast_mdec_to_long (mdec*)` | return a `long` that is converted integer from argument. | 
 
 ## Debug Functions (not recommended)
-I defined some print out functions for debugging.  
+I defined some printout functions for debugging.  
 but those functions has a possibility that is redefined or changed.
 at the last, those functions will not return a state that is success or not!
 so you cannot use those functions to your safety application!
 
 | Function | Description | 
 ---- | ---- 
-| `void print_mdec (mdec*, FILE*)` | this function print out mdec instance to stream as decimal number. | 
-| `void print_mdec_ln (mdec*, FILE*)` | this function is similar as `print_mdec`. but this function put line break after print out. |
-| `void print_mdec_as_fraction (mdec*, FILE*)` | this function print out mdec instance to stream as fraction. | 
-| `void print_mdec_as_fraction_ln (mdec*, FILE*)` | this function is similar as `print_mdec_as_fraction`. but this function put line break after print out. |
+| `void print_mdec (mdec*, FILE*)` | this function printout mdec instance to stream as decimal number. | 
+| `void print_mdec_ln (mdec*, FILE*)` | this similar as `print_mdec`. but this put line break after printout. |
+| `void print_mdec_as_fraction (mdec*, FILE*)` | this function printout mdec instance to stream as fraction. | 
+| `void print_mdec_as_fraction_ln (mdec*, FILE*)` | this similar as `print_mdec_as_fraction`. but this put line break after printout. |
 
 # License 
 this library released under the MIT License.
