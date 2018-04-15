@@ -4,8 +4,8 @@
 
 struct mdec {
   int sign;
-  mint *denominator;
   mint *numerator;
+  mint *denominator;
 };
 
 typedef struct mdec mdec;

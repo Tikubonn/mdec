@@ -1,20 +1,20 @@
 #include <mdec.h>
 
 mdec *add_mdec (mdec *numa, mdec *numb){
-  mint *denominatora = make_mint(
-    size_mint(numa->denominator) +
-    size_mint(numb->numerator) +1);
   mint *numeratora = make_mint(
     size_mint(numa->numerator) +
-    size_mint(numb->numerator));
-  mdec *mda = make_mdec(0, denominatora, numeratora);
-  mint *denominatorb = make_mint(
-    size_mint(numb->denominator) + 
-    size_mint(numa->numerator));
+    size_mint(numb->denominator) +1);
+  mint *denominatora = make_mint(
+    size_mint(numa->denominator) +
+    size_mint(numb->denominator));
+  mdec *mda = make_mdec(0, numeratora, denominatora);
   mint *numeratorb = make_mint(
-    size_mint(numb->numerator) +
-    size_mint(numa->numerator));
-  mdec *mdb = make_mdec(0, denominatorb, numeratorb);
+    size_mint(numb->numerator) + 
+    size_mint(numa->denominator));
+  mint *denominatorb = make_mint(
+    size_mint(numb->denominator) +
+    size_mint(numa->denominator));
+  mdec *mdb = make_mdec(0, numeratorb, denominatorb);
   add_mdec_manually(numa, numb, mda, mdb);
 	compaction_mdec(mda);
   free_mdec(mdb);

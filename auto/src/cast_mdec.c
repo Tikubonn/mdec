@@ -3,14 +3,14 @@
 mint *cast_mdec_to_mint (mdec *num){
   if (is_negative_mdec(num)){
     mint *num0 = make_mint_from_int(0);
-    mint *numd = div_mint(num->denominator, num->numerator);
+    mint *numd = div_mint(num->numerator, num->denominator);
     mint *numn = sub_mint(num0, numd);
     free_mint(num0);
     free_mint(numd);
     return numn;
   }
   else {
-    mint *numd = div_mint(num->denominator, num->numerator);
+    mint *numd = div_mint(num->numerator, num->denominator);
     return numd;
   }
 }

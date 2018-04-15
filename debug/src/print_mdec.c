@@ -12,18 +12,18 @@ static mint *make_nd (unsigned long count){
   return numn;
 }
 
-static void print_mdec_fraction (mint *denominator, mint *numerator, FILE *stream){
+static void print_mdec_fraction (mint *numerator, mint *denominator, FILE *stream){
   mint *numn = make_mint_from_int(10);
   mint *num10 = make_mint_from_int(10);
-  while (is_lesser_mint(numn, numerator)){
+  while (is_lesser_mint(numn, denominator)){
     mint *tmp = mul_mint(numn, num10);
     free_mint(numn);
     numn = tmp;
   }
-  mint *deno = mul_mint(denominator, numn);
+  mint *deno = mul_mint(numerator, numn);
   mint *numd;
   mint *numm;
-  floor_mint(deno, numerator, &numd, &numm);
+  floor_mint(deno, denominator, &numd, &numm);
   mint *numn2 = div_mint(numn, num10);
   while (is_lesser_mint(numd, numn2)){
     mint *tmp = div_mint(numn2, num10);
@@ -36,7 +36,7 @@ static void print_mdec_fraction (mint *denominator, mint *numerator, FILE *strea
   else {
     mint *numdn = make_nd(8 + 1);
     mint *deno2 = mul_mint(deno, numdn);
-    mint *numd2 = div_mint(deno2, numerator);
+    mint *numd2 = div_mint(deno2, denominator);
     print_mint(numd2, stream);
     free_mint(numdn);
     free_mint(deno2);
@@ -49,10 +49,10 @@ static void print_mdec_fraction (mint *denominator, mint *numerator, FILE *strea
   free_mint(numd);
 }
 
-static void print_mdec_int (mint *denominator, mint *numerator, FILE *stream){
+static void print_mdec_int (mint *numerator, mint *denominator, FILE *stream){
   mint *numd;
   mint *numm;
-  floor_mint(denominator, numerator, &numd, &numm);
+  floor_mint(numerator, denominator, &numd, &numm);
   print_mint(numd, stream);
   putc('.', stream);
   if (is_zero_mint(numm)){
@@ -62,7 +62,7 @@ static void print_mdec_int (mint *denominator, mint *numerator, FILE *stream){
     return;
   }
   free_mint(numd);
-  print_mdec_fraction(numm, numerator, stream);
+  print_mdec_fraction(numm, denominator, stream);
   free_mint(numm);
 }
 
@@ -71,7 +71,7 @@ void print_mdec (mdec *num, FILE *stream){
     fputs("0.0", stream);
     return;
   }
-  print_mdec_int(num->denominator, num->numerator, stream);
+  print_mdec_int(num->numerator, num->denominator, stream);
 }
 
 void print_mdec_ln (mdec *num, FILE *stream){
@@ -80,9 +80,9 @@ void print_mdec_ln (mdec *num, FILE *stream){
 }
 
 void print_mdec_as_fraction (mdec *num, FILE *stream){
-  print_mint(num->denominator, stream);
-  putc('/', stream);
   print_mint(num->numerator, stream);
+  putc('/', stream);
+  print_mint(num->denominator, stream);
 }
 
 void print_mdec_as_fraction_ln (mdec *num, FILE *stream){

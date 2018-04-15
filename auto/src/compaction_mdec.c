@@ -33,11 +33,11 @@ void compaction_mdec (mdec *num){
 	if (is_zero_mdec(num)){
 		return;
 	}
-	mint *numd = common_divisor(num->denominator, num->numerator);
-	mint *denominator = div_mint(num->denominator, numd);
+	mint *numd = common_divisor(num->numerator, num->denominator);
 	mint *numerator = div_mint(num->numerator, numd);
-	free_mint(num->denominator);
+	mint *denominator = div_mint(num->denominator, numd);
 	free_mint(num->numerator);
-	num->denominator = denominator;
+	free_mint(num->denominator);
 	num->numerator = numerator;
+	num->denominator = denominator;
 }

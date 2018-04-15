@@ -20,7 +20,6 @@ if you did not append path of mint to environment variable, you should tell a pa
 make MINT_INCLUDE="path to mint" MINT_LIBRARY="path to mint/dist"
 ```
 
-
 # API
 ## Manual Fcuntions 
 those functions does not allocate memory automatically.  
