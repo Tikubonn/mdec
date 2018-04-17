@@ -1,4 +1,5 @@
 #include <mdec.h>
+#define max(a,b) ((a)<(b)?(b):(a))
 
 mdec *sub_mdec (mdec *numa, mdec *numb){
   /* mint *numeratora = make_mint(
