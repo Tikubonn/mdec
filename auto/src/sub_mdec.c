@@ -1,9 +1,14 @@
 #include <mdec.h>
 
 mdec *sub_mdec (mdec *numa, mdec *numb){
-  mint *numeratora = make_mint(
+  /* mint *numeratora = make_mint(
     size_mint(numa->numerator) + 
-    size_mint(numb->denominator) +1);
+    size_mint(numb->denominator) +1); */
+  mint *numeratora = make_mint(max(
+    size_mint(numa->numerator) +
+    size_mint(numb->denominator),
+    size_mint(numb->numerator) +
+    size_mint(numa->denominator)) +1);
   mint *denominatora = make_mint(
     size_mint(numa->denominator) +
     size_mint(numb->denominator));
