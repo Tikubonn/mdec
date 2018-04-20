@@ -1,7 +1,7 @@
 
 export ROOTDIR = $(CURDIR)
 export CC = gcc
-export CFLAGS = -g3 -I$(CURDIR) -L$(CURDIR) -I$(MINT_INCLUDE) -L$(MINT_LIBRARY)
+export CFLAGS = -g3 -Wall -I$(CURDIR) -L$(CURDIR) -I$(MINT_INCLUDE) -L$(MINT_LIBRARY)
 
 all:
 	make -C manual
