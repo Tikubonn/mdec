@@ -9,6 +9,9 @@ mdec *mul_mdec (mdec *numa, mdec *numb){
     size_mint(numb->denominator));
   mdec *md = make_mdec(0, numerator, denominator);
   mul_mdec_manually(numa, numb, md);
-	compaction_mdec(md);
-  return md;
+	/* compaction_mdec(md);
+  return md; */
+  mdec *mdc = compacted_mdec(md);
+  free_mdec(md);
+  return mdc;
 }

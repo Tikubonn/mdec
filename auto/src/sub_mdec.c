@@ -22,7 +22,11 @@ mdec *sub_mdec (mdec *numa, mdec *numb){
     size_mint(numa->denominator));
   mdec *mdb = make_mdec(0, numeratorb, denominatorb);
   sub_mdec_manually(numa, numb, mda, mdb);
-	compaction_mdec(mda);
+	/* compaction_mdec(mda);
   free_mdec(mdb);
-  return mda;
+  return mda; */
+  mdec *mdc = compacted_mdec(mda);
+  free_mdec(mda);
+  free_mdec(mdb);
+  return mdc;
 }

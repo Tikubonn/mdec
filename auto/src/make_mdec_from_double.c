@@ -57,8 +57,11 @@ mdec *make_mdec_from_float (float num){
   free_mint(numf);
   free_mint(num1);
   mdec *md = make_mdec(sign, num2, numb);
-  compaction_mdec(md);
-  return md;
+  /* compaction_mdec(md);
+  return md; */
+  mdec *mdc = compacted_mdec(md);
+  free_mdec(md);
+  return mdc;
 }
 
 mdec *make_mdec_from_double (double num){
@@ -72,6 +75,10 @@ mdec *make_mdec_from_double (double num){
   free_mint(numf);
   free_mint(num1);
   mdec *md = make_mdec(sign, num2, numb);
-  compaction_mdec(md);
   return md;
+  /* compaction_mdec(md);
+  return md; */
+  mdec *mdc = compacted_mdec(md);
+  free_mdec(md);
+  return mdc;
 }

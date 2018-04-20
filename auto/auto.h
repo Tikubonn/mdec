@@ -13,7 +13,7 @@
 #include "src/div_mdec.h"
 #include "src/abs_mdec.h"
 #include "src/cast_mdec.h"
-#include "src/compaction_mdec.h"
+#include "src/compacted_mdec.h"
 #include "src/copy_mdec.h"
 #include "src/make_mdec_from_string.h"
 #include "src/make_mdec_from_double.h"
