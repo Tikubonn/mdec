@@ -14,7 +14,7 @@ int inumd = cast_mdec_to_int(numd); // 1
 
 ## Build Library
 move to this package's directory then execute the make command :D  
-if you did not append path of mint to environment variable, you should tell a path to directory that contain necessary files to makefile. like this code.
+if you did not append path of [mint](https://github.com/tikubonn/mint) to environment variable, you should tell a path to directory that contain necessary files to makefile. like this code.
 
 ```bash
 make MINT_INCLUDE="path to mint" MINT_LIBRARY="path to mint/dist"
@@ -54,23 +54,28 @@ but this library does not have GC, so you should release manually the unnecessar
 
 | Function | Description |
 ---- | ---- 
-| `mdec *make_mdec (int sign, mint *numerator, mint *denominator)` | this function make a new mdec instance from arguments. an argument of `sign` must be `MDEC_POSITIVE` or `MDEC_NEGATIVE`. denominator and numerator must be positive integer. |
+| `mdec *make_mdec (int sign, mint *numerator, mint *denominator)` | make a new instance that is constructed by arguments. an argument of `sign` must be `MDEC_POSITIVE` or `MDEC_NEGATIVE`. `denominator` and `numerator` must be a positive number. |
+| `mdec *make_mdec_from_double (double)` | make a new instance from C double. | 
+| `mdec *make_mdec_from_float (float)` | make a new instance from C float. | 
+| `mdec *make_mdec_from_string (char*)` | make a new instance from ASCII string what like as `"123.456"`. if string value is invalid, this function return a `NULL`. |
 | `mdec *copy_mdec (mdec*)` | create a copied instance from argument. |
-| `void free_mdec (mdec*)` | this function release the memory that is used for mdec instance. |
+| `void free_mdec (mdec*)` | free a memory space that is used for instance. |
 | `mdec *add_mdec (mdec*, mdec*)` | return a calculation result of `+` as new instance. | 
 | `mdec *sub_mdec (mdec*, mdec*)` | return a calculation result of `-` as new instance. | 
 | `mdec *mul_mdec (mdec*, mdec*)` | return a calculation result of `*` as new instance. | 
 | `mdec *div_mdec (mdec*, mdec*)` | return a calculation result of `/` as new instance. if second argument is `0`, this function cause zero division exception then return the `NULL` immediately. | 
-| `mdec *abs_mdec (mdec*)` | return a absolute number from argument. | 
+| `mdec *abs_mdec (mdec*)` | return a absolute decimal of argument. | 
 | `int is_equal_mdec (mdec*, mdec*)` | this function return an integer that is `1` if first and second argument are equal. otherwise this return `0`. | 
 | `int is_unequal_mdec (mdec*, mdec*)` | this function return an integer that is `1` if first and second argument are not equal. otherwise this return `0`. | 
 | `int is_lesser_mdec (mdec*, mdec*)` | this function return an integer that is `1` if first argument is lesser than second argument. otherwise this return `0`. | 
 | `int is_lesser_or_equal_mdec (mdec*, mdec*)` | this function return an integer that is `1` if first argument is lesser or equal than second argument. otherwise this return `0`. | 
 | `int is_greater_mdec (mdec*, mdec*)` | this function return an integer that is `1` if first argument is greater than second argument. otherwise this return `0`. | 
 | `int is_greater_or_equal_mdec (mdec*, mdec*)` | this function return an integer that is `1` if first argument is greater or equal than second argument. otherwise this return `0`. | 
-| `mint *cast_mdec_to_mint (mdec*)` | return a new `mint` instance that is a multiple length integer from argument. | 
-| `int cast_mdec_to_int (mdec*)` | return a `int` that is converted integer from argument. |
-| `long cast_mdec_to_long (mdec*)` | return a `long` that is converted integer from argument. | 
+| `mint *cast_mdec_to_mint (mdec*)` | cast an instance to `mint` instance. | 
+| `int cast_mdec_to_int (mdec*)` | cast an instance to `int`. if instance value is greater than C int, some parts of data will be missing. |
+| `long cast_mdec_to_long (mdec*)` | cast an instance to `long`. if instance value is greater than C long, some parts of data will be missing. | 
+| `double cast_mdec_to_double (mdec*)` | cast an instance to `double`. this function has a possibility what parts of data will be missing. | 
+| `float cast_mdec_to_float (mdec*)` | cast an instance to `float`. this function has a possibility what parts of data will be missing. | 
 | `void compaction_mdec (mdec*)` | compaction numerator and denominator to least common multiple. |
 
 ## Debug Functions (not recommended)
