@@ -517,5 +517,77 @@ int main (){
     free(mdd);
   }
   
+  /* test tmp + */
+  
+  {
+    make_tmp_mdec_from_int(numa, 2525);
+    make_tmp_mdec_from_int(numb, 2828);
+    add_tmp_mdec(numc, numa, numb);
+    mdec *numd = make_mdec_from_int(2525);
+    mdec *nume = make_mdec_from_int(2828);
+    mdec *numf = add_mdec(numd, nume);
+    test(is_equal_mdec(numc, numf));
+    free_mdec(numd);
+    free_mdec(nume);
+    free_mdec(numf);
+  }
+  
+  /* test tmp - */
+  
+  {
+    make_tmp_mdec_from_int(numa, 2525);
+    make_tmp_mdec_from_int(numb, 2828);
+    sub_tmp_mdec(numc, numa, numb);
+    mdec *numd = make_mdec_from_int(2525);
+    mdec *nume = make_mdec_from_int(2828);
+    mdec *numf = sub_mdec(numd, nume);
+    test(is_equal_mdec(numc, numf));
+    free_mdec(numd);
+    free_mdec(nume);
+    free_mdec(numf);
+  }
+  
+  /* test tmp * */
+  
+  {
+    make_tmp_mdec_from_int(numa, 2525);
+    make_tmp_mdec_from_int(numb, 2828);
+    mul_tmp_mdec(numc, numa, numb);
+    mdec *numd = make_mdec_from_int(2525);
+    mdec *nume = make_mdec_from_int(2828);
+    mdec *numf = mul_mdec(numd, nume);
+    test(is_equal_mdec(numc, numf));
+    free_mdec(numd);
+    free_mdec(nume);
+    free_mdec(numf);
+  }
+  
+  /* test tmp / */
+  
+  {
+    make_tmp_mdec_from_int(numa, 2525);
+    make_tmp_mdec_from_int(numb, 2828);
+    div_tmp_mdec(numc, numa, numb);
+    mdec *numd = make_mdec_from_int(2525);
+    mdec *nume = make_mdec_from_int(2828);
+    mdec *numf = div_mdec(numd, nume);
+    test(is_equal_mdec(numc, numf));
+    free_mdec(numd);
+    free_mdec(nume);
+    free_mdec(numf);
+  }
+  
+  /* test abs */
+  
+  {
+    make_tmp_mdec_from_int(numa, -2525);
+    abs_tmp_mdec(numb, numa);
+    mdec *numc = make_mdec_from_int(-2525);
+    mdec *numd = abs_mdec(numc);
+    test(is_equal_mdec(numb, numd));
+    free_mdec(numc);
+    free_mdec(numd);
+  }
+  
   return 0;
 }
