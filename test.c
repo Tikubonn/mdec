@@ -12,7 +12,7 @@ if ((codea) == (codeb)){ printf("success: %s %s\n", #codea, #codeb); }\
 else { printf("failed: %s %s\n", #codea, #codeb); exit(1); }
 
 int main (){
-
+  
   /* test print */
   
   { // (3/1) = 3.0
@@ -34,6 +34,38 @@ int main (){
     mint *nume = make_mint_from_int(3);
     mdec *md = make_mdec(MDEC_POSITIVE, deno, nume);
     print_mdec_ln(md, stdout);
+  }
+
+  /* test make from double */
+  
+  {
+    mdec *mda = make_mdec_from_double(3.0);
+    mint *numa = make_mint_from_int(3);
+    mint *numb = make_mint_from_int(1);
+    mdec *mdb = make_mdec(MDEC_POSITIVE, numa, numb);
+    test(is_equal_mdec(mda, mdb));
+    free_mdec(mda);
+    free_mdec(mdb);
+  }
+  
+  {
+    mdec *mda = make_mdec_from_double(-3.0);
+    mint *numa = make_mint_from_int(3);
+    mint *numb = make_mint_from_int(1);
+    mdec *mdb = make_mdec(MDEC_NEGATIVE, numa, numb);
+    test(is_equal_mdec(mda, mdb));
+    free_mdec(mda);
+    free_mdec(mdb);
+  }
+  
+  {
+    mdec *mda = make_mdec_from_double(1.5);
+    mint *numa = make_mint_from_int(3);
+    mint *numb = make_mint_from_int(2);
+    mdec *mdb = make_mdec(MDEC_POSITIVE, numa, numb);
+    test(is_equal_mdec(mda, mdb));
+    free_mdec(mda);
+    free_mdec(mdb);
   }
   
   /* test =0 */
@@ -461,8 +493,6 @@ int main (){
     free(mdc);
     free(mdd);
   }
-  
-  /*  */
   
   return 0;
 }
