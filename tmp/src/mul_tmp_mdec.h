@@ -13,6 +13,6 @@ size_mint(numb->denominator));\
 make_tmp_mdec(var, 0,\
 __ ## var ## _mul_numerator,\
 __ ## var ## _mul_denominator);\
-mul_tmp_mdec(\
+mul_mdec_manually(\
 __ ## var ## _mul_argument1,\
 __ ## var ## _mul_argument2, var);

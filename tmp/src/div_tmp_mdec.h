@@ -13,6 +13,6 @@ size_mint(numa->denominator));\
 make_tmp_mdec(var, 0,\
 __ ## var ## _div_numerator,\
 __ ## var ## _div_denominator);\
-div_tmp_mdec(\
+div_mdec_manually(\
 __ ## var ## _div_argument1,\
 __ ## var ## _div_argument2, var);
