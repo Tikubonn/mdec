@@ -2,8 +2,10 @@
 #define MDEC_NEGATIVE 0
 #define MDEC_POSITIVE 1
 
+typedef int mdec_sign;
+
 struct mdec {
-  int sign;
+  mdec_sign sign;
   mint *numerator;
   mint *denominator;
 };

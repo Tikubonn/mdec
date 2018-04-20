@@ -1,7 +1,7 @@
 #include <mdec.h>
 #include <stdlib.h>
 
-mdec *make_mdec (int sign, mint *numerator, mint *denominator){
+mdec *make_mdec (mdec_sign sign, mint *numerator, mint *denominator){
   mdec *md = malloc(sizeof(mdec));
   md->sign = sign;
   md->numerator = numerator;
