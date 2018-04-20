@@ -28,6 +28,22 @@ for example if calculate the multiplication, you should allocate a memory space 
 if you want to management mdec by GC, those functions are useful.
 but normally [Automatic Functions](#automatic-functions) are easier to use than those.
 
+```c
+mdec num1;
+mint *numerator1 = make_mint_from_int(1);
+mint *denominator1 = make_mint_from_int(3);
+init_mdec(MDEC_POSITIVE, numerator1, denominator1, &num1); // 3/2
+mdec num2;
+mint *numerator2 = make_mint_from_int(1);
+mint *denominator2 = make_mint_from_int(6);
+init_mdec(MDEC_POSITIVE, numerator2, denominator2, &num2); // 2/3
+mdec num3;
+mint *numerator3 = make_mint(4);
+mint *denominator3 = make_mint(4);
+init_mdec(0, numerator3, denominator3, &num3);
+mul_mdec(&num1, &num2, &num3); // 3/2 * 2/3 = 6/6
+```
+
 | Function | Description |
 ---- | ----
 | `void init_mdec (int sign, mint *numerator, mint *denominator, mdec*)` | construct an instance by arguments. an argument of `sign` must be `MDEC_POSITIVE` or `MDEC_NEGATIVE`. `denominator` and `numerator` must be a positive number. | 
@@ -53,6 +69,15 @@ those functions allocate memory automatically with `malloc`.
 so those are more useful than manual functions.
 but this library does not have GC, so you should release manually the unnecessary memory.
 if you want to make a temporary instance, you can use [Temporary Macros](#temporary-macros).
+
+```c
+mdec *num1 = make_mdec_from_double(1.5);
+mdec *num2 = make_mdec_from_int(3);
+mdec *num3 = add_mdec(num1, num2);
+free_mdec(num1); // free manually
+free_mdec(num2); // free manually
+return num3;
+```
 
 | Function | Description |
 ---- | ---- 
@@ -86,6 +111,14 @@ so created instance will be released automatically when exit from current scope.
 it is useful for management of temporary instance.
 but those function has possibility that cause segmentation error when not enough memory.
 
+```c
+make_tmp_mdec_from_int(num1, 3);
+make_tmp_mdec_from_int(num2, 2);
+div_tmp_mdec(num3, num1, num2);
+mint *numexp = copy_mdec(num3); // if you want to keep calculation result after exit from current stack frame, you should copy with automatic or manual function.
+return numexp;
+```
+
 | Macro | Description |
 ---- | ---- 
 | `make_tmp_mdec (var, sign, mint*, mint*)` | assign a new instahce to `var`. that is constructed by arguments. |
@@ -104,12 +137,18 @@ but those functions has a possibility that is redefined or changed.
 at the last, those functions will not return a state that is success or not!
 so you cannot use those functions to your safety application!
 
+```c
+mint *num = make_mdec_from_double(1.5);
+print_mdec_ln(num, stdout); // 1.5
+print_mdec_as_fraction_ln(num, stdout); // 3/2
+```
+
 | Function | Description | 
 ---- | ---- 
 | `void print_mdec (mdec*, FILE*)` | print out instance to stream as decimal format. | 
-| `void print_mdec_ln (mdec*, FILE*)` | this similar as `print_mdec`. but this put line break after print out. |
+| `void print_mdec_ln (mdec*, FILE*)` | this similar as `print_mdec`. but this put a line break after print out. |
 | `void print_mdec_as_fraction (mdec*, FILE*)` | print out mdec instance to stream as fractional format. | 
-| `void print_mdec_as_fraction_ln (mdec*, FILE*)` | this similar as `print_mdec_as_fraction`. but this put line break after print out. |
+| `void print_mdec_as_fraction_ln (mdec*, FILE*)` | this similar as `print_mdec_as_fraction`. but this put a line break after print out. |
 
 # License 
 this library released under the MIT License.
