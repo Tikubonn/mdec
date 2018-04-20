@@ -68,6 +68,29 @@ int main (){
     free_mdec(mdb);
   }
   
+  /* test cast */
+  
+  {
+    mdec *md = make_mdec_from_double(3.0);
+    double num = cast_mdec_to_double(md);
+    test(num == 3.0);
+    free_mdec(md);
+  }
+  
+  {
+    mdec *md = make_mdec_from_double(-3.0);
+    double num = cast_mdec_to_double(md);
+    test(num == -3.0);
+    free_mdec(md);
+  }
+  
+  {
+    mdec *md = make_mdec_from_double(1.5);
+    double num = cast_mdec_to_double(md);
+    test(num == 1.5);
+    free_mdec(md);
+  }
+  
   /* test =0 */
   
   { // (0/n) = (0/1)
