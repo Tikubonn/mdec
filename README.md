@@ -5,11 +5,11 @@ in this library, decimal structure similar as the fractional format.
 so you can calculate a decimal without missing part of data :D
 
 ```c
-mdec *numa = make_mdec_from_int(1);
-mdec *numb = make_mdec_from_int(3000);
-mdec *numc = div_mdec(numa, numb); // (1/3000)
-mdec *numd = mul_mdec(numc, numb); // (3000/3000)
-int inumd = cast_mdec_to_int(numd); // 1
+mdec *num1 = make_mdec_from_int(1);
+mdec *num2 = make_mdec_from_int(3000);
+mdec *num3 = div_mdec(num1, num2); // (1/3000)
+mdec *num4 = mul_mdec(num3, num2); // (3000/3000)
+int inumd = cast_mdec_to_int(num4); // 1
 ```
 
 ## Build Library
