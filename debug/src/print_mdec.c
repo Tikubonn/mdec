@@ -71,6 +71,9 @@ void print_mdec (mdec *num, FILE *stream){
     fputs("0.0", stream);
     return;
   }
+  if (is_negative_mdec(num)){
+    fputs("-", stream);
+  }
   print_mdec_int(num->numerator, num->denominator, stream);
 }
 
@@ -80,9 +83,18 @@ void print_mdec_ln (mdec *num, FILE *stream){
 }
 
 void print_mdec_as_fraction (mdec *num, FILE *stream){
-  print_mint(num->numerator, stream);
-  putc('/', stream);
-  print_mint(num->denominator, stream);
+  if (is_negative_mdec(num)){
+    fputs("-(", stream);
+    print_mint(num->numerator, stream);
+    putc('/', stream);
+    print_mint(num->denominator, stream);
+    fputs(")", stream);
+  }
+  else {
+    print_mint(num->numerator, stream);
+    putc('/', stream);
+    print_mint(num->denominator, stream);
+  }
 }
 
 void print_mdec_as_fraction_ln (mdec *num, FILE *stream){
