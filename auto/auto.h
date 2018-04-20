@@ -16,3 +16,4 @@
 #include "src/compaction_mdec.h"
 #include "src/copy_mdec.h"
 #include "src/make_mdec_from_string.h"
+#include "src/make_mdec_from_double.h"
