@@ -19,9 +19,10 @@ clean:
 	rm -f compiled/cast_mdec.o
 	rm -f compiled/compaction_mdec.o
 	rm -f compiled/copy_mdec.o
+	rm -f compiled/make_mdec_from_string.o
 
-auto.lib: compiled/make_mdec.o compiled/free_mdec.o compiled/is_equal_mdec.o compiled/is_unequal_mdec.o compiled/is_lesser_mdec.o compiled/is_lesser_or_equal_mdec.o compiled/is_greater_mdec.o compiled/is_greater_or_equal_mdec.o compiled/add_mdec.o compiled/sub_mdec.o compiled/mul_mdec.o compiled/div_mdec.o compiled/abs_mdec.o compiled/cast_mdec.o compiled/compaction_mdec.o compiled/copy_mdec.o
-	ar r auto.lib compiled/make_mdec.o compiled/free_mdec.o compiled/is_equal_mdec.o compiled/is_unequal_mdec.o compiled/is_lesser_mdec.o compiled/is_lesser_or_equal_mdec.o compiled/is_greater_mdec.o compiled/is_greater_or_equal_mdec.o compiled/add_mdec.o compiled/sub_mdec.o compiled/mul_mdec.o compiled/div_mdec.o compiled/abs_mdec.o compiled/cast_mdec.o compiled/compaction_mdec.o compiled/copy_mdec.o
+auto.lib: compiled/make_mdec.o compiled/free_mdec.o compiled/is_equal_mdec.o compiled/is_unequal_mdec.o compiled/is_lesser_mdec.o compiled/is_lesser_or_equal_mdec.o compiled/is_greater_mdec.o compiled/is_greater_or_equal_mdec.o compiled/add_mdec.o compiled/sub_mdec.o compiled/mul_mdec.o compiled/div_mdec.o compiled/abs_mdec.o compiled/cast_mdec.o compiled/compaction_mdec.o compiled/copy_mdec.o compiled/make_mdec_from_string.o
+	ar r auto.lib compiled/make_mdec.o compiled/free_mdec.o compiled/is_equal_mdec.o compiled/is_unequal_mdec.o compiled/is_lesser_mdec.o compiled/is_lesser_or_equal_mdec.o compiled/is_greater_mdec.o compiled/is_greater_or_equal_mdec.o compiled/add_mdec.o compiled/sub_mdec.o compiled/mul_mdec.o compiled/div_mdec.o compiled/abs_mdec.o compiled/cast_mdec.o compiled/compaction_mdec.o compiled/copy_mdec.o compiled/make_mdec_from_string.o
 
 compiled/make_mdec.o: src/make_mdec.c
 	$(CC) $(CFLAGS) -c src/make_mdec.c -o compiled/make_mdec.o
@@ -70,3 +71,6 @@ compiled/compaction_mdec.o: src/compaction_mdec.c
 
 compiled/copy_mdec.o: src/copy_mdec.c
 	$(CC) $(CFLAGS) -c src/copy_mdec.c -o compiled/copy_mdec.o
+
+compiled/make_mdec_from_string.o: src/make_mdec_from_string.c
+	$(CC) $(CFLAGS) -c src/make_mdec_from_string.c -o compiled/make_mdec_from_string.o
