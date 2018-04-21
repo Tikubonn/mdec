@@ -6,6 +6,10 @@
 */
 
 void cast_mdec_to_mint_manually (mdec *num, mint *numout, mint *numtmp){
+  if (is_zero_mdec(num)){
+    load_mint_from_int(0, numout);
+  }
+  else 
   if (is_negative_mdec(num)){
     make_tmp_mint_from_int(num0, 0);
     copy_mint_manually(num->numerator, numtmp);
