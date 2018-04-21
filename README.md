@@ -127,15 +127,21 @@ return numexp;
 
 | Macro | Description |
 ---- | ---- 
-| `make_tmp_mdec (var, sign, mint*, mint*)` | assign a new instahce to `var`. that is constructed by arguments. |
-| `make_tmp_mdec_from_int (var, int)` | assign a new instahce to `var`. that is made from C int. |
-| `make_tmp_mdec_from_long (var, long)` | assign a new instahce to `var`. that is made from C long. |
+| `make_tmp_mdec (var, sign, mint*, mint*)` | assign a new instance to `var`. that is constructed by arguments. |
+| `make_tmp_mdec_from_int (var, int)` | assign a new instance to `var`. that is made from C int. |
+| `make_tmp_mdec_from_long (var, long)` | assign a new instance to `var`. that is made from C long. |
 | `copy_tmp_mdec(var, mdec*)` | assign a copied instance to `var`. |
-| `add_tmp_mdec(var, mdec*, mdec*)` | assign a new instahce to `var`. that is a calculation result of `+` by arguments. |
-| `add_tmp_mdec(var, mdec*, mdec*)` | assign a new instahce to `var`. that is a calculation result of `-` by arguments. |
-| `add_tmp_mdec(var, mdec*, mdec*)` | assign a new instahce to `var`. that is a calculation result of `*` by arguments. |
-| `add_tmp_mdec(var, mdec*, mdec*)` | assign a new instahce to `var`. that is a calculation result of `/` by arguments. |
-| `abs_tmp_mdec(var, mdec*, mdec*)` | assign a new instahce to `var`. that is an absolute decimal of argument. | 
+| `add_tmp_mdec(var, mdec*, mdec*)` | assign a new instance to `var`. that is a calculation result of `+` by arguments. |
+| `add_tmp_mdec(var, mdec*, mdec*)` | assign a new instance to `var`. that is a calculation result of `-` by arguments. |
+| `add_tmp_mdec(var, mdec*, mdec*)` | assign a new instance to `var`. that is a calculation result of `*` by arguments. |
+| `add_tmp_mdec(var, mdec*, mdec*)` | assign a new instance to `var`. that is a calculation result of `/` by arguments. |
+| `abs_tmp_mdec(var, mdec*, mdec*)` | assign a new instance to `var`. that is an absolute decimal of argument. | 
+| `cast_mdec_to_tmp_double(var, mdec*)` | assign a `double` to `var`. that is casted from second argument. |
+| `cast_mdec_to_tmp_float(var, mdec*)` | assign a `float` to `var`. that is casted from second argument. |
+| `cast_mdec_to_tmp_mint(var, mdec*)` |  assign a new `mint` instance to `var`. that is casted from second argument. |
+| `cast_mdec_to_tmp_long(var, mdec*)` | assign a `long` to `var`. that is casted from second argument. |
+| `cast_mdec_to_tmp_int(var, mdec*)` | assign a `int` to `var`. that is casted from second argument. |
+| `compacted_tmp_mdec(var, mdec*)` | assign a new instance to `var`. that is compacted that numerator and denominator are divided by least common divisor. |
 
 ## Debug Functions (not recommended)
 I defined some print out functions for debugging.  
