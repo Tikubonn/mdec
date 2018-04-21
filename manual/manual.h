@@ -16,3 +16,5 @@
 #include "src/mul_mdec_manually.h"
 #include "src/div_mdec_manually.h"
 #include "src/abs_mdec_manually.h"
+#include "src/compacted_mdec_manually.h"
+#include "src/cast_mdec_manually.h"
