@@ -1,13 +1,21 @@
 #include <mdec.h>
 
 /*
-  numout = size num->numerator 
+  numout = size num->numerator +1
   numtmp = size num->numerator 
 */
 
 void cast_mdec_to_mint_manually (mdec *num, mint *numout, mint *numtmp){
-  copy_mint_manually(num->numerator, numtmp);
-  floor_mint_manually(numtmp, num->denominator, numout);
+  if (is_negative_mint(num)){
+    make_tmp_mint_from_int(num0, 0);
+    copy_mint_manually(num->numerator, numtmp);
+    floor_mint_manually(numtmp, num->denominator, numout);
+    sub_mint_manually(numout, num0, numout);
+  }
+  else {
+    copy_mint_manually(num->numerator, numtmp);
+    floor_mint_manually(numtmp, num->denominator, numout);
+  }
 }
 
 /*
