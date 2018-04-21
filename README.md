@@ -62,7 +62,13 @@ mul_mdec(&num1, &num2, &num3); // 3/2 * 2/3 = 6/6
 | `int is_positive_mdec (mdec*, mdec*)` | return an integer that is `1` if argument is positive number. otherwise this function return `0`. |
 | `int is_negative_mdec (mdec*, mdec*)` | return an integer that is `1` if argument is negative number. otherwise this function return `0`. |
 | `int is_zero_mdec (mdec*, mdec*)` | return an integer that is `1` if argument is `0`. otherwise this function return `0`. | 
-| `int commonize_mdec_manualy (mdec*, mdec*, mdec* numout1, mdec* numout2)` | write adjusted instances to `numout1` and `numout2`. those value are multiplied by denominator of mutual. |
+| `int commonize_mdec_manually (mdec*, mdec*, mdec* numout1, mdec* numout2)` | write adjusted instances to `numout1` and `numout2`. those value are multiplied by denominator of mutual. |
+| `void cast_mdec_to_mint_manually (mdec*, mint *numout, mint *tmp)` | cast an instance to `mint` instance then write to `numout`. |
+| `double cast_mdec_to_double_manually (mdec*, mdec *tmp1, mint *tmp2, mint *tmp3)` | cast an instance to `double`. this function has a possibility what parts of data will be missing. |
+| `float cast_mdec_to_float_manually (mdec*, mdec *tmp1, mint *tmp2, mint *tmp3)` | cast an instance to `float`. this function has a possibility what parts of data will be missing. |
+| `long cast_mdec_to_long_manually (mdec*, mint *tmp1, mint *tmp2)` | cast an instance to `long`. if instance value is greater than C int, some parts of data will be missing. |
+| `int cast_mdec_to_int_manually (mdec*, mint *tmp1, mint *tmp2)` | cast an instance to `int`. this if instance value is greater than C int, some parts of data will be missing. | 
+| `void compacted_mdec_manually (mdec*, mdec *numout, mint *tmp1, mint *tmp2)` | write a compacted instance to `numout`. that numerator and denominator are divided by least common divisor. | 
 
 ## Automatic Functions 
 those functions allocate memory automatically with `malloc`.  
