@@ -30,13 +30,6 @@ long cast_mdec_to_long (mdec *num){
 }
 
 double cast_mdec_to_double (mdec *num){
-  /* compaction_mdec(num);
-  long numei = cast_mint_to_long(num->numerator);
-  long denoi = cast_mint_to_long(num->denominator);
-  double nume = (double)numei;
-  double deno = (double)denoi;
-  double numd = nume / deno;
-  return is_negative_mdec(num) ? 0 - numd : numd; */
   mdec *numc = compacted_mdec(num);
   long numei = cast_mint_to_long(numc->numerator);
   long denoi = cast_mint_to_long(numc->denominator);
@@ -48,13 +41,6 @@ double cast_mdec_to_double (mdec *num){
 }
 
 float cast_mdec_to_float (mdec *num){
-  /* compaction_mdec(num);
-  long numei = cast_mint_to_long(num->numerator);
-  long denoi = cast_mint_to_long(num->denominator);
-  double nume = (double)numei;
-  double deno = (double)denoi;
-  double numd = nume / deno;
-  return is_negative_mdec(num) ? 0 - numd : numd; */
   mdec *numc = compacted_mdec(num);
   long numei = cast_mint_to_long(numc->numerator);
   long denoi = cast_mint_to_long(numc->denominator);
