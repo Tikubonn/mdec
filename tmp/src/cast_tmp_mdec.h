@@ -4,12 +4,12 @@
 #define cast_mdec_to_tmp_mint(var, num)\
 mdec *__ ## var ## _cast_argument1 = num;\
 make_tmp_mint(var,\
-size_mint(__ ## var ## _cast_argument1) +1); {\
+size_mint(__ ## var ## _cast_argument1->numerator) +1); {\
 make_tmp_mint(__ ## var ## _cast_tmp,\
-size_mint(__ ## var ## _cast_argument1));\
+size_mint(__ ## var ## _cast_argument1->numerator));\
 cast_mdec_to_mint_manually(\
-__ ## var ## _cast_argument1,\
-var, __ ## var ## _cast_tmp); }
+__ ## var ## _cast_argument1, var,\
+__ ## var ## _cast_tmp); }
 
 #define cast_mdec_to_tmp_double_max(a, b) ((a)<(b)?(b):(a))
 #define cast_mdec_to_tmp_double(var, num)\
