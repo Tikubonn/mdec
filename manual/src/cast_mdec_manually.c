@@ -6,7 +6,7 @@
 */
 
 void cast_mdec_to_mint_manually (mdec *num, mint *numout, mint *numtmp){
-  if (is_negative_mint(num)){
+  if (is_negative_mdec(num)){
     make_tmp_mint_from_int(num0, 0);
     copy_mint_manually(num->numerator, numtmp);
     floor_mint_manually(numtmp, num->denominator, numout);
