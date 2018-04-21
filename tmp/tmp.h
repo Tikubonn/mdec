@@ -6,3 +6,5 @@
 #include "src/mul_tmp_mdec.h"
 #include "src/div_tmp_mdec.h"
 #include "src/abs_tmp_mdec.h"
+#include "src/cast_tmp_mdec.h"
+#include "src/compacted_tmp_mdec.h"
