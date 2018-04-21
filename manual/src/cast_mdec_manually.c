@@ -1,26 +1,26 @@
 #include <mdec.h>
 
 double cast_mdec_to_double_sloppily (mdec *num){
-  double nume = (double)cast_mint_to_long(num);
-  double deno = (double)cast_mint_to_long(num);
+  double nume = (double)cast_mint_to_long(num->numerator);
+  double deno = (double)cast_mint_to_long(num->denominator);
   return is_negative_mdec(num) ? -(nume / deno) : (nume / deno);
 }
 
 float cast_mdec_to_float_sloppily (mdec *num){
-  double nume = (double)cast_mint_to_long(num);
-  double deno = (double)cast_mint_to_long(num);
+  double nume = (double)cast_mint_to_long(num->numerator);
+  double deno = (double)cast_mint_to_long(num->denominator);
   return is_negative_mdec(num) ? -(nume / deno) : (nume / deno);
 }
 
-long cast_mdec_to_double_sloppily (mdec *num){
-  long nume = cast_mint_to_long(num);
-  long deno = cast_mint_to_long(num);
+long cast_mdec_to_long_sloppily (mdec *num){
+  long nume = cast_mint_to_long(num->numerator);
+  long deno = cast_mint_to_long(num->denominator);
   return is_negative_mdec(num) ? -(nume / deno) : (nume / deno);
 }
 
-int cast_mdec_to_float_sloppily (mdec *num){
-  long nume = cast_mint_to_long(num);
-  long deno = cast_mint_to_long(num);
+int cast_mdec_to_int_sloppily (mdec *num){
+  long nume = cast_mint_to_long(num->numerator);
+  long deno = cast_mint_to_long(num->denominator);
   return is_negative_mdec(num) ? -(nume / deno) : (nume / deno);
 }
 
