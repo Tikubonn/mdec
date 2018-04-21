@@ -612,5 +612,53 @@ int main (){
     free_mdec(numd);
   }
   
+  /* test cast */
+  
+  {
+    mint *numerator = make_mint_from_int(3);
+    mint *denominator = make_mint_from_int(2);
+    mdec *num = make_mdec(MDEC_POSITIVE, numerator, denominator);
+    cast_mdec_to_tmp_double(numd, num);
+    test(numd == 1.5);
+    free_mdec(num);
+  }
+  
+  {
+    mint *numerator = make_mint_from_int(3);
+    mint *denominator = make_mint_from_int(2);
+    mdec *num = make_mdec(MDEC_POSITIVE, numerator, denominator);
+    cast_mdec_to_tmp_float(numd, num);
+    test(numd == 1.5);
+    free_mdec(num);
+  }
+  
+  {
+    mint *numerator = make_mint_from_int(3);
+    mint *denominator = make_mint_from_int(2);
+    mdec *num = make_mdec(MDEC_POSITIVE, numerator, denominator);
+    cast_mdec_to_tmp_mint(numi, num);
+    make_tmp_mint_from_int(num1, 1);
+    test(is_equal_mint(num1, numi));
+    free_mdec(num);
+  }
+  
+  {
+    mint *numerator = make_mint_from_int(3);
+    mint *denominator = make_mint_from_int(2);
+    mdec *num = make_mdec(MDEC_POSITIVE, numerator, denominator);
+    cast_mdec_to_tmp_long(numi, num);
+    test(numi == 1);
+    free_mdec(num);
+  }
+  
+  {
+    mint *numerator = make_mint_from_int(3);
+    mint *denominator = make_mint_from_int(2);
+    mdec *num = make_mdec(MDEC_POSITIVE, numerator, denominator);
+    cast_mdec_to_tmp_int(numi, num);
+    test(numi == 1);
+    free_mdec(num);
+  }
+  
   return 0;
 }
