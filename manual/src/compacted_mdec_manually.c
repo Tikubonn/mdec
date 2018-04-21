@@ -42,10 +42,10 @@ void compacted_mdec_manually (mdec *num, mdec *numout, mint *numtmp1, mint *numt
   }
   if (commd == numtmp2){
     numout->sign = num->sign;
-    copy_mint_manually(num->numerator, numtmp2);
-    floor_mint_manually(numtmp2, commd, numout->numerator);
-    copy_mint_manually(num->denominator, numtmp2);
-    floor_mint_manually(numtmp2, commd, numout->denominator);
+    copy_mint_manually(num->numerator, numtmp1);
+    floor_mint_manually(numtmp1, commd, numout->numerator);
+    copy_mint_manually(num->denominator, numtmp1);
+    floor_mint_manually(numtmp1, commd, numout->denominator);
     return;
   }
 }
