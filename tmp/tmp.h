@@ -8,3 +8,6 @@
 #include "src/abs_tmp_mdec.h"
 #include "src/cast_tmp_mdec.h"
 #include "src/compacted_tmp_mdec.h"
+#include "src/round_tmp_mdec.h"
+#include "src/floor_tmp_mdec.h"
+#include "src/ceil_tmp_mdec.h"
