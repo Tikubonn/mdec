@@ -21,9 +21,12 @@ clean:
 	rm -f compiled/abs_mdec_manually.o	
 	rm -f compiled/compacted_mdec_manually.o	
 	rm -f compiled/cast_mdec_manually.o	
+	rm -f compiled/round_mdec_manually.o	
+	rm -f compiled/floor_mdec_manually.o	
+	rm -f compiled/ceil_mdec_manually.o	
 
-manual.lib: compiled/init_mdec.o compiled/copy_mdec_manually.o compiled/commonize_mdec_manually.o compiled/is_equal_mdec_manually.o compiled/is_unequal_mdec_manually.o compiled/is_lesser_mdec_manually.o compiled/is_lesser_or_equal_mdec_manually.o compiled/is_greater_mdec_manually.o compiled/is_greater_or_equal_mdec_manually.o compiled/is_positive_mdec.o compiled/is_negative_mdec.o compiled/is_zero_mdec.o compiled/add_mdec_manually.o compiled/sub_mdec_manually.o compiled/mul_mdec_manually.o compiled/div_mdec_manually.o compiled/abs_mdec_manually.o compiled/compacted_mdec_manually.o compiled/cast_mdec_manually.o
-	ar r manual.lib compiled/init_mdec.o compiled/copy_mdec_manually.o compiled/commonize_mdec_manually.o compiled/is_equal_mdec_manually.o compiled/is_unequal_mdec_manually.o compiled/is_lesser_mdec_manually.o compiled/is_lesser_or_equal_mdec_manually.o compiled/is_greater_mdec_manually.o compiled/is_greater_or_equal_mdec_manually.o compiled/is_positive_mdec.o compiled/is_negative_mdec.o compiled/is_zero_mdec.o compiled/add_mdec_manually.o compiled/sub_mdec_manually.o compiled/mul_mdec_manually.o compiled/div_mdec_manually.o compiled/abs_mdec_manually.o compiled/compacted_mdec_manually.o compiled/cast_mdec_manually.o
+manual.lib: compiled/init_mdec.o compiled/copy_mdec_manually.o compiled/commonize_mdec_manually.o compiled/is_equal_mdec_manually.o compiled/is_unequal_mdec_manually.o compiled/is_lesser_mdec_manually.o compiled/is_lesser_or_equal_mdec_manually.o compiled/is_greater_mdec_manually.o compiled/is_greater_or_equal_mdec_manually.o compiled/is_positive_mdec.o compiled/is_negative_mdec.o compiled/is_zero_mdec.o compiled/add_mdec_manually.o compiled/sub_mdec_manually.o compiled/mul_mdec_manually.o compiled/div_mdec_manually.o compiled/abs_mdec_manually.o compiled/compacted_mdec_manually.o compiled/cast_mdec_manually.o compiled/round_mdec_manually.o compiled/floor_mdec_manually.o compiled/ceil_mdec_manually.o
+	ar r manual.lib compiled/init_mdec.o compiled/copy_mdec_manually.o compiled/commonize_mdec_manually.o compiled/is_equal_mdec_manually.o compiled/is_unequal_mdec_manually.o compiled/is_lesser_mdec_manually.o compiled/is_lesser_or_equal_mdec_manually.o compiled/is_greater_mdec_manually.o compiled/is_greater_or_equal_mdec_manually.o compiled/is_positive_mdec.o compiled/is_negative_mdec.o compiled/is_zero_mdec.o compiled/add_mdec_manually.o compiled/sub_mdec_manually.o compiled/mul_mdec_manually.o compiled/div_mdec_manually.o compiled/abs_mdec_manually.o compiled/compacted_mdec_manually.o compiled/cast_mdec_manually.o compiled/round_mdec_manually.o compiled/floor_mdec_manually.o compiled/ceil_mdec_manually.o
 
 compiled/init_mdec.o: src/init_mdec.c
 	$(CC) $(CFLAGS) -c src/init_mdec.c -o compiled/init_mdec.o
@@ -81,3 +84,12 @@ compiled/compacted_mdec_manually.o: src/compacted_mdec_manually.c
 
 compiled/cast_mdec_manually.o: src/cast_mdec_manually.c
 	$(CC) $(CFLAGS) -c src/cast_mdec_manually.c -o compiled/cast_mdec_manually.o
+
+compiled/round_mdec_manually.o: src/round_mdec_manually.c
+	$(CC) $(CFLAGS) -c src/round_mdec_manually.c -o compiled/round_mdec_manually.o
+
+compiled/floor_mdec_manually.o: src/floor_mdec_manually.c
+	$(CC) $(CFLAGS) -c src/floor_mdec_manually.c -o compiled/floor_mdec_manually.o
+
+compiled/ceil_mdec_manually.o: src/ceil_mdec_manually.c
+	$(CC) $(CFLAGS) -c src/ceil_mdec_manually.c -o compiled/ceil_mdec_manually.o

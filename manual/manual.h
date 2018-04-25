@@ -18,3 +18,6 @@
 #include "src/abs_mdec_manually.h"
 #include "src/compacted_mdec_manually.h"
 #include "src/cast_mdec_manually.h"
+#include "src/round_mdec_manually.h"
+#include "src/floor_mdec_manually.h"
+#include "src/ceil_mdec_manually.h"
