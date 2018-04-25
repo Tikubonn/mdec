@@ -2,9 +2,6 @@
 #define max(a,b) ((a)<(b)?(b):(a))
 
 mdec *sub_mdec (mdec *numa, mdec *numb){
-  /* mint *numeratora = make_mint(
-    size_mint(numa->numerator) + 
-    size_mint(numb->denominator) +1); */
   mint *numeratora = make_mint(max(
     size_mint(numa->numerator) +
     size_mint(numb->denominator),
@@ -22,9 +19,6 @@ mdec *sub_mdec (mdec *numa, mdec *numb){
     size_mint(numa->denominator));
   mdec *mdb = make_mdec(0, numeratorb, denominatorb);
   sub_mdec_manually(numa, numb, mda, mdb);
-  /* compaction_mdec(mda);
-  free_mdec(mdb);
-  return mda; */
   mdec *mdc = compacted_mdec(mda);
   free_mdec(mda);
   free_mdec(mdb);

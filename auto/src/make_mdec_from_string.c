@@ -127,8 +127,6 @@ mdec *make_mdec_from_string (char *source){
   free_mint(num1);
   free_mint(numf);
   mdec *md = make_mdec(sign, num2, numb);
-  /* compaction_mdec(md);
-  return md; */
   mdec *mdc = compacted_mdec(md);
   free_mdec(md);
   return mdc;
