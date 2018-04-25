@@ -68,6 +68,78 @@ int main (){
     free_mdec(mdb);
   }
   
+  /* test round */
+  
+  {
+    mint *numerator = make_mint_from_int(4);
+    mint *denominator = make_mint_from_int(10);
+    mdec *numa = make_mdec(MDEC_POSITIVE, numerator, denominator);
+    mint *numb = round_mdec(numa);
+    int inumb = cast_mint_to_int(numb);
+    test(inumb == 0);
+    free_mdec(numa);
+    free_mint(numb);
+  }
+    
+  {
+    mint *numerator = make_mint_from_int(5);
+    mint *denominator = make_mint_from_int(10);
+    mdec *numa = make_mdec(MDEC_POSITIVE, numerator, denominator);
+    mint *numb = round_mdec(numa);
+    int inumb = cast_mint_to_int(numb);
+    test(inumb == 1);
+    free_mdec(numa);
+    free_mint(numb);
+  }
+    
+  /* test floor */
+  
+  {
+    mint *numerator = make_mint_from_int(4);
+    mint *denominator = make_mint_from_int(10);
+    mdec *numa = make_mdec(MDEC_POSITIVE, numerator, denominator);
+    mint *numb = floor_mdec(numa);
+    int inumb = cast_mint_to_int(numb);
+    test(inumb == 0);
+    free_mdec(numa);
+    free_mint(numb);
+  }
+    
+  {
+    mint *numerator = make_mint_from_int(5);
+    mint *denominator = make_mint_from_int(10);
+    mdec *numa = make_mdec(MDEC_POSITIVE, numerator, denominator);
+    mint *numb = floor_mdec(numa);
+    int inumb = cast_mint_to_int(numb);
+    test(inumb == 0);
+    free_mdec(numa);
+    free_mint(numb);
+  }
+  
+  /* test ceil */
+  
+  {
+    mint *numerator = make_mint_from_int(4);
+    mint *denominator = make_mint_from_int(10);
+    mdec *numa = make_mdec(MDEC_POSITIVE, numerator, denominator);
+    mint *numb = ceil_mdec(numa);
+    int inumb = cast_mint_to_int(numb);
+    test(inumb == 1);
+    free_mdec(numa);
+    free_mint(numb);
+  }
+    
+  {
+    mint *numerator = make_mint_from_int(5);
+    mint *denominator = make_mint_from_int(10);
+    mdec *numa = make_mdec(MDEC_POSITIVE, numerator, denominator);
+    mint *numb = ceil_mdec(numa);
+    int inumb = cast_mint_to_int(numb);
+    test(inumb == 1);
+    free_mdec(numa);
+    free_mint(numb);
+  }
+  
   /* test cast */
   
   {
@@ -659,6 +731,67 @@ int main (){
     test(numi == 1);
     free_mdec(num);
   }
+  
+  /* test round */
+  
+  {
+    make_tmp_mint_from_int(numerator, 4);
+    make_tmp_mint_from_int(denominator, 10);
+    make_tmp_mdec(numa, MDEC_POSITIVE, numerator, denominator);
+    round_tmp_mdec(numb, numa);
+    int inumb = cast_mint_to_int(numb);
+    test(inumb == 0);
+  }
+    
+  {
+    make_tmp_mint_from_int(numerator, 5);
+    make_tmp_mint_from_int(denominator, 10);
+    make_tmp_mdec(numa, MDEC_POSITIVE, numerator, denominator);
+    round_tmp_mdec(numb, numa);
+    int inumb = cast_mint_to_int(numb);
+    test(inumb == 1);
+  }
+    
+  /* test floor */
+  
+  {
+    make_tmp_mint_from_int(numerator, 4);
+    make_tmp_mint_from_int(denominator, 10);
+    make_tmp_mdec(numa, MDEC_POSITIVE, numerator, denominator);
+    floor_tmp_mdec(numb, numa);
+    int inumb = cast_mint_to_int(numb);
+    test(inumb == 0);
+  }
+    
+  {
+    make_tmp_mint_from_int(numerator, 5);
+    make_tmp_mint_from_int(denominator, 10);
+    make_tmp_mdec(numa, MDEC_POSITIVE, numerator, denominator);
+    floor_tmp_mdec(numb, numa);
+    int inumb = cast_mint_to_int(numb);
+    test(inumb == 0);
+  }
+  
+  /* test ceil */
+  
+  {
+    make_tmp_mint_from_int(numerator, 4);
+    make_tmp_mint_from_int(denominator, 10);
+    make_tmp_mdec(numa, MDEC_POSITIVE, numerator, denominator);
+    ceil_tmp_mdec(numb, numa);
+    int inumb = cast_mint_to_int(numb);
+    test(inumb == 1);
+  }
+    
+  {
+    make_tmp_mint_from_int(numerator, 5);
+    make_tmp_mint_from_int(denominator, 10);
+    make_tmp_mdec(numa, MDEC_POSITIVE, numerator, denominator);
+    ceil_tmp_mdec(numb, numa);
+    int inumb = cast_mint_to_int(numb);
+    test(inumb == 1);
+  }
+
   
   return 0;
 }
