@@ -69,6 +69,9 @@ mul_mdec(&num1, &num2, &num3); // 3/2 * 2/3 = 6/6
 | `long cast_mdec_to_long_manually (mdec*, mint *tmp1, mint *tmp2)` | cast an instance to `long`. if instance value is greater than C int, some parts of data will be missing. |
 | `int cast_mdec_to_int_manually (mdec*, mint *tmp1, mint *tmp2)` | cast an instance to `int`. this if instance value is greater than C int, some parts of data will be missing. | 
 | `void compacted_mdec_manually (mdec*, mdec *numout, mint *tmp1, mint *tmp2)` | write a compacted instance to `numout`. that numerator and denominator are divided by least common divisor. | 
+| `void round_mdec_manually (mdec*, mint *numout, mint *tmp)` | write a rounded off integer to `numout`. |
+| `void floor_mdec_manually (mdec*, mint *numout, mint *tmp)` | write a rounded down integer to `numout`. |
+| `void ceil_mdec_manually (mdec*, mint *numout, mint *tmp)` | write a rounded up integer to `numout`. |
 
 ## Automatic Functions 
 those functions allocate memory automatically with `malloc`.  
@@ -110,6 +113,9 @@ return num3;
 | `double cast_mdec_to_double (mdec*)` | cast an instance to `double`. this function has a possibility what parts of data will be missing. | 
 | `float cast_mdec_to_float (mdec*)` | cast an instance to `float`. this function has a possibility what parts of data will be missing. | 
 | `mdec *compacted_mdec (mdec*)` | return a compacted instance that numerator and denominator are divided by least common divisor. |
+| `mint *round_mdec_manually (mdec*)` | return a rounded off integer. |
+| `mint *floor_mdec_manually (mdec*)` | return a rounded down integer. |
+| `mint *ceil_mdec_manually (mdec*)` | return a rounded up integer. |
 
 ## Temporary Macros 
 those macros allocate memory from stack frame.  
@@ -142,6 +148,9 @@ return numexp;
 | `cast_mdec_to_tmp_long(var, mdec*)` | assign a `long` to `var`. that is casted from second argument. |
 | `cast_mdec_to_tmp_int(var, mdec*)` | assign a `int` to `var`. that is casted from second argument. |
 | `compacted_tmp_mdec(var, mdec*)` | assign a new instance to `var`. that is compacted that numerator and denominator are divided by least common divisor. |
+| `round_mdec_manually (var, mdec*)` | assign a rounded off integer to `var`. |
+| `floor_mdec_manually (var, mdec*)` | assign a rounded down integer to `var`. |
+| `ceil_mdec_manually (var, mdec*)` | assign a rounded up integer to `var`. |
 
 ## Debug Functions (not recommended)
 I defined some print out functions for debugging.  
