@@ -4,7 +4,7 @@
 #define floor_tmp_mdec(var, num)\
 mdec *__ ## var ## _floor_argument1 = num;\
 mint *var = make_mint(\
-size_mint(__ ## var ## _floor_argument1->numerator)); {\
+size_mint(__ ## var ## _floor_argument1->numerator) +1); {\
 mint *__ ## var ## _floor_tmp = make_mint(\
 size_mint(__ ## var ## _floor_argument1->numerator));\
 floor_mdec_manually(\

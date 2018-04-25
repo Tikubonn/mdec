@@ -1,8 +1,8 @@
 #include <mdec.h>
 
 /*
+  numout = sizeof num->numerator +2
   numtmp = sizeof num->numerator +1
-  numout = sizeof num->numerator +1
 */
 
 void round_mdec_manually (mdec *num, mint *numout, mint *numtmp){
@@ -12,5 +12,9 @@ void round_mdec_manually (mdec *num, mint *numout, mint *numtmp){
   if (is_greater_or_equal_mint(numtmp, num->denominator)){
     make_tmp_mint_from_int(num1, 1);
     add_mint_manually(numout, num1, numout);
+  }
+  if (is_negative_mdec(num)){
+    make_tmp_mint_from_int(num0, 0);
+    sub_mint_manually(num0, numout, numout);
   }
 }
