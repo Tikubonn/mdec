@@ -21,9 +21,12 @@ clean:
 	rm -f compiled/copy_mdec.o
 	rm -f compiled/make_mdec_from_string.o
 	rm -f compiled/make_mdec_from_double.o
+	rm -f compiled/round_mdec.o
+	rm -f compiled/floor_mdec.o
+	rm -f compiled/ceil_mdec.o
 
-auto.lib: compiled/make_mdec.o compiled/free_mdec.o compiled/is_equal_mdec.o compiled/is_unequal_mdec.o compiled/is_lesser_mdec.o compiled/is_lesser_or_equal_mdec.o compiled/is_greater_mdec.o compiled/is_greater_or_equal_mdec.o compiled/add_mdec.o compiled/sub_mdec.o compiled/mul_mdec.o compiled/div_mdec.o compiled/abs_mdec.o compiled/cast_mdec.o compiled/compacted_mdec.o compiled/copy_mdec.o compiled/make_mdec_from_string.o compiled/make_mdec_from_double.o
-	ar r auto.lib compiled/make_mdec.o compiled/free_mdec.o compiled/is_equal_mdec.o compiled/is_unequal_mdec.o compiled/is_lesser_mdec.o compiled/is_lesser_or_equal_mdec.o compiled/is_greater_mdec.o compiled/is_greater_or_equal_mdec.o compiled/add_mdec.o compiled/sub_mdec.o compiled/mul_mdec.o compiled/div_mdec.o compiled/abs_mdec.o compiled/cast_mdec.o compiled/compacted_mdec.o compiled/copy_mdec.o compiled/make_mdec_from_string.o compiled/make_mdec_from_double.o
+auto.lib: compiled/make_mdec.o compiled/free_mdec.o compiled/is_equal_mdec.o compiled/is_unequal_mdec.o compiled/is_lesser_mdec.o compiled/is_lesser_or_equal_mdec.o compiled/is_greater_mdec.o compiled/is_greater_or_equal_mdec.o compiled/add_mdec.o compiled/sub_mdec.o compiled/mul_mdec.o compiled/div_mdec.o compiled/abs_mdec.o compiled/cast_mdec.o compiled/compacted_mdec.o compiled/copy_mdec.o compiled/make_mdec_from_string.o compiled/make_mdec_from_double.o compiled/round_mdec.o compiled/floor_mdec.o compiled/ceil_mdec.o
+	ar r auto.lib compiled/make_mdec.o compiled/free_mdec.o compiled/is_equal_mdec.o compiled/is_unequal_mdec.o compiled/is_lesser_mdec.o compiled/is_lesser_or_equal_mdec.o compiled/is_greater_mdec.o compiled/is_greater_or_equal_mdec.o compiled/add_mdec.o compiled/sub_mdec.o compiled/mul_mdec.o compiled/div_mdec.o compiled/abs_mdec.o compiled/cast_mdec.o compiled/compacted_mdec.o compiled/copy_mdec.o compiled/make_mdec_from_string.o compiled/make_mdec_from_double.o compiled/round_mdec.o compiled/floor_mdec.o compiled/ceil_mdec.o
 
 compiled/make_mdec.o: src/make_mdec.c
 	$(CC) $(CFLAGS) -c src/make_mdec.c -o compiled/make_mdec.o
@@ -78,3 +81,12 @@ compiled/make_mdec_from_string.o: src/make_mdec_from_string.c
 
 compiled/make_mdec_from_double.o: src/make_mdec_from_double.c
 	$(CC) $(CFLAGS) -c src/make_mdec_from_double.c -o compiled/make_mdec_from_double.o
+
+compiled/round_mdec.o: src/round_mdec.c
+	$(CC) $(CFLAGS) -c src/round_mdec.c -o compiled/round_mdec.o
+
+compiled/floor_mdec.o: src/floor_mdec.c
+	$(CC) $(CFLAGS) -c src/floor_mdec.c -o compiled/floor_mdec.o
+
+compiled/ceil_mdec.o: src/ceil_mdec.c
+	$(CC) $(CFLAGS) -c src/ceil_mdec.c -o compiled/ceil_mdec.o

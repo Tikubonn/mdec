@@ -17,3 +17,6 @@
 #include "src/copy_mdec.h"
 #include "src/make_mdec_from_string.h"
 #include "src/make_mdec_from_double.h"
+#include "src/round_mdec.h"
+#include "src/floor_mdec.h"
+#include "src/ceil_mdec.h"
